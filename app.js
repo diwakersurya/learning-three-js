@@ -18,7 +18,7 @@ var example=(function() {
 
 
 	function initScene() {
-		scene.setGravity(new THREE.Vector3(0, -50, 0));
+		scene.setGravity(new THREE.Vector3(0, -50, -10));
 
 		renderer.setSize(window.innerWidth,window.innerHeight);
 		//renderer.shadowMap.enabled=true;
@@ -59,8 +59,8 @@ var example=(function() {
 
 		//create new material
 		var boxMaterial=new Physijs.createMaterial(new THREE.MeshLambertMaterial({map:THREE.ImageUtils.loadTexture("tx.jpg")}),
-		0,//friction
-		0.8//restitution/bounciness
+		0.8,//friction
+		1//restitution/bounciness
 		);
 		/*box=new THREE.Mesh(new THREE.BoxGeometry(20,20,20),boxMaterial);
 		box.name="box";
@@ -87,7 +87,7 @@ var example=(function() {
 		scene.add(box);
 		var groundMaterial=new Physijs.createMaterial(new THREE.MeshLambertMaterial({map:THREE.ImageUtils.loadTexture("gt.jpg")}),
 			0.8,//friction
-			0.3//restitution/bounciness
+			0.5//restitution/bounciness
 			);
 
 		ground=new Physijs.BoxMesh(new THREE.CubeGeometry(150,5,150),
